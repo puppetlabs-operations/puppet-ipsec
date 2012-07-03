@@ -2,6 +2,12 @@ log     notify;  #log verbosity setting: set to 'notify' when testing and debugg
 
 path pre_shared_key "/usr/local/etc/racoon/psk.txt" ;
 
+listen  # address [port] that racoon will listening on
+{
+  isakmp          <%= my_ip %> [500];
+  isakmp_natt     <%= my_ip %> [4500];
+}
+
 remote <%= their_ip %>
 {
   exchange_mode main,base;
