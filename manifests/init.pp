@@ -5,17 +5,13 @@ class ipsec(
   $remote_subnet,
   $local_router,
   $remote_router,
-  $key ) {
+  $key,
+) inherits ipsec::params {
 
-  include ipsec::params
-
-  package{ $ipsec::params::ipsec_packages:
-    ensure => present,
-    alias  => 'ipsec',
-  }
+  include ipsec::setup
 
   if $::operatingsystem == 'FreeBSD' {
-    # We need to put that in to rc.conf somehow too.
+    # We need to put that in to rc.conf
     service{ 'ipsec':
       enable => true,
     }
@@ -35,5 +31,4 @@ class ipsec(
     remote_subnet => $remote_subnet,
     key           => $key,
   }
-
 }
