@@ -1,3 +1,7 @@
+# Define: ipsec::sa
+#
+# Manage an IPSec Security Association between security gateways.
+#
 define ipsec::sa (
   $local_router,
   $local_network,
