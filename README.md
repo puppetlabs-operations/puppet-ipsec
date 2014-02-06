@@ -33,7 +33,7 @@ ipsec::sa { 'siteB_to_siteA':
 #### *ipsec::sasyncd*
 
 For redundant IPSec gateways, you will want to synchronize the SAs between the
-gateway peers.  To do this, use the `ipsec::sasyncd` to control the `sasyncd(8`
+gateway peers.  To do this, use the `ipsec::sasyncd` to control the `sasyncd(8)`
 daemon.
 
 On the primary *siteA* gateway, add the following.
