@@ -9,9 +9,11 @@
 # * sharedkey prefix the output of `openssl rand -hex 32` with 0x.
 #
 class ipsec::sasyncd (
-  $peer      = [],
-  $interface = undef,
-  $sharedkey = undef,
+  $peer            = [],
+  $interface       = undef,
+  $listen_address,
+  $listen_port     = '500',
+  $sharedkey       = undef,
 ) {
 
   include ipsec::setup
