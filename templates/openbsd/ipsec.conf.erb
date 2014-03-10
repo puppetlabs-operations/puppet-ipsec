@@ -1,2 +1,10 @@
 # <%= @name %>
-ike esp from { <%= @local_router %> <%= @local_network %> } to { <%= @remote_router %> <%= @remote_network %> } local <%= @local_router %> peer <%= @remote_router %> main auth hmac-sha2-256 enc blowfish quick auth hmac-sha2-384 enc blowfish psk "<%= @key %>"
+ike <%= @mode if @mode %> esp \
+    from { <%= @local_network %> } \
+    to { <%= @remote_network %> } \
+    local <%= @local_router %> peer <%= @remote_router %> \
+    main <%= "lifetime " + @p1_lifetime if @p1_lifetime %> \
+    quick <%= "lifetime " + @p2_lifetime if @p2_lifetime %> \
+    srcid <%= @local_router %> dstid <%= @remote_router %> \
+    psk "<%= @key %>"
+

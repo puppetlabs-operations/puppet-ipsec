@@ -62,3 +62,7 @@ Security Associations between two gateways, using the status of the `carp42`
 interface to determine who is master and who is slave at any given time.  You
 will need to make sure that TCP port 500 is open from the peer.
 
+
+# Todo
+* manage the isakmpd listen addresses.
+

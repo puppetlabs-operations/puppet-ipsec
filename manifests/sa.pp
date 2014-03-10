@@ -8,6 +8,9 @@ define ipsec::sa (
   $remote_router,
   $remote_network,
   $key,
+  $mode = undef, # one of, passive, active, or dynamic. see ipsec.conf(5)
+  $p1_lifetime = undef,
+  $p2_lifetime = undef,
 ) {
 
   include ipsec::setup
